@@ -1,4 +1,4 @@
-export const typeDefs = `#graphql
+const typeDefs = `#graphql
     type User {
         id: Int!
         name: String!
@@ -28,3 +28,4 @@ export const typeDefs = `#graphql
         chance: Float!
     }
 `
+exports.typeDefs = typeDefs
