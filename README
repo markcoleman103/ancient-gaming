@@ -1,5 +1,7 @@
 Dice Simulator API
 
+Developers note: Unfortunately, I wasn't able to implement the code in TypeScript as I had issue with configuration which slowed me down but the code run in JavaScript as it is. If I had more time I would have filled the gaps in my knowledge and implemented in TypeScript as well. I am a fast learner though and I have already begun learning regardless of the outcome of the test. 
+
 Set up
 To start the application run the following command in the terminal:
 
