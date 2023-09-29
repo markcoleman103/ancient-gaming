@@ -13,10 +13,11 @@ export const typeDefs = `#graphql
         win: Boolean!
     }
     type Query {
-        bets: [Bet]
-        bet(id: ID!): Bet
-        users: [User]
-        user(id: ID!): User
+        getBetList: [Bet]
+        getBet(id: Int!): Bet
+        getUserList: [User]
+        getUser(id: Int!): User
+        getBestBetPerUser(limit: Int!): [Bet]
     }
     type Mutation {
         createBet(bet: CreateBetInput!): Bet
