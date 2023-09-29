@@ -21,11 +21,16 @@ const typeDefs = `#graphql
     }
     type Mutation {
         createBet(bet: CreateBetInput!): Bet
+        createUser(user: CreateUserInput): User
     }
     input CreateBetInput {
         userId: Int!
         betAmount: Float!
         chance: Float!
+    }
+    input CreateUserInput {
+        name: String!
+        balance: Float!
     }
 `
 exports.typeDefs = typeDefs
