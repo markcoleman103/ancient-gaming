@@ -1,1 +1,63 @@
+Dice Simulator API
 
+Set up
+To start the application run the following command in the terminal:
+
+`npm run start`
+
+Then go to the following URL in your browser:
+
+`http://localhost:4000/`
+
+-------
+Notes for Devs:
+
+- All TypeScript files are in the /src file and any changes should be implemented there
+- .js files are outputted to the /build folder and the`npm run start` command deploys from there
+
+
+-------
+
+Example Queries
+
+Get Users: 
+
+`query UserQuery {
+  getUserList {
+    id
+    name
+    balance
+  }
+}`
+
+
+Best Bet:
+
+`query BestBetQuery($limit: Int!) {
+  getBestBetPerUser(limit: $limit) {
+    id
+    userId
+    payout
+  }
+}`
+
+Create Bet:
+
+`mutation createBet($bet: CreateBetInput!) {
+  createBet(bet: $bet) {
+    userId
+    chance
+    betAmount
+    payout
+    win
+  }
+}`
+
+Payload:
+`{
+  "bet": {
+    "userId": 457, //This needs to match an existing user from the Get Users query above
+    "betAmount": 150.0,
+    "chance": 0.9
+  }
+}`
