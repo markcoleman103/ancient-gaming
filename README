@@ -3,6 +3,7 @@ Dice Simulator API
 Set up
 To start the application run the following command in the terminal:
 
+`npm run init`
 `npm run start`
 
 Then go to the following URL in your browser:
