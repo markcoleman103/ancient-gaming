@@ -1,7 +1,5 @@
 Dice Simulator API
 
-Developers note: Unfortunately, I wasn't able to implement the code in TypeScript as I had issue with configuration which slowed me down but the code run in JavaScript as it is. If I had more time I would have filled the gaps in my knowledge and implemented in TypeScript as well. I am a fast learner though and I have already begun learning regardless of the outcome of the test. 
-
 Set up
 To start the application run the following command in the terminal:
 
@@ -10,6 +8,13 @@ To start the application run the following command in the terminal:
 Then go to the following URL in your browser:
 
 `http://localhost:4000/`
+
+-------
+Notes for Devs:
+
+- All TypeScript files are in the /src file and any changes should be implemented there
+- .js files are outputted to the /build folder and the`npm run start` command deploys from there
+
 
 -------
 

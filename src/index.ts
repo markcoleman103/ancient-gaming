@@ -20,7 +20,7 @@ db.sequelize.sync().then(async () => {
     
     startStandaloneServer(server, {
         listen: { port: 4000 }
-    }).then((url) => {
+    }).then((url:string) => {
         console.log('Server ready at port', 4000)
     });
 })

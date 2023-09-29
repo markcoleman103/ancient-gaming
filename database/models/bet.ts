@@ -2,9 +2,9 @@
 const {
   Model
 } = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
+module.exports = (sequelize:any, DataTypes:any) => {
   class bet extends Model {
-    static associate(models) {
+    static associate() {
       // define association here
     }
   }

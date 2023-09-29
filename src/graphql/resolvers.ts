@@ -1,6 +1,14 @@
 const { user, bet } = require('../../database/models/index.js')
 console.log('user', user)
 
+import {
+    queryUserArgs,
+    queryBetArgs,
+    queryBestBetArgs,
+    createUserArgs,
+    createBetArgs
+} from '../interfaces/'
+
 const Query = {
     // Returns a list of all users
     async getUserList() {
@@ -8,7 +16,7 @@ const Query = {
         return results
     },
     // Returns a single of user which matches the id parameter
-    async getUser(parent, args, context) {
+    async getUser(parent:object, args:queryUserArgs) {
         return await user.findOne({ where: { id: args.id }})
     },
     // Returns a list of all bets
@@ -16,15 +24,15 @@ const Query = {
         return await bet.findAll()
     },
     // Returns a single of bet which matches the id parameter
-    async getBet(parent, args, context) {
+    async getBet(parent:object, args:queryBetArgs) {
         return await bet.findOne({ where: { id: args.id }})
     },
     // Returns a list of the best bets (highest payout) per user
-    async getBestBetPerUser(parent, args, context) {
+    async getBestBetPerUser(parent:object, args:queryBestBetArgs) {
         let topBets = [];
         const winningBets = await bet.findAll({ where: { win: true }})
         for(const winningBet of winningBets) {
-            let existingTopBetIndex = topBets.findIndex((topBet) => topBet.userId === winningBet.userId);
+            let existingTopBetIndex:number = topBets.findIndex((topBet) => topBet.userId === winningBet.userId);
             let existingTopBet = topBets[existingTopBetIndex]
             if (!existingTopBet) {
                 topBets.push(winningBet)
@@ -41,7 +49,7 @@ const Query = {
 
 const Mutation = {
     // Creates a new user (for testing as the seeders weren't working for me)
-    async createUser(parent, args, context) {
+    async createUser(parent:object, args:createUserArgs) {
         let newUser = {
             ...args.user,
             id: Math.floor(Math.random() * 10000).toString()
@@ -49,7 +57,7 @@ const Mutation = {
         return await user.create(newUser)
     },
     // Creates a new bet and calculates if it is a win based on the odds. It will also adjust the balance of the user based on the result.
-    async createBet(parent, args, context) {
+    async createBet(parent:object, args:createBetArgs) {
         let newBet = {
             ...args.bet,
             id: Math.floor(Math.random() * 10000).toString(),
