@@ -1,3 +1,4 @@
 node_modules
-database/development.db
 build/
+database/development.db
+
